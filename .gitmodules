@@ -1,0 +1,3 @@
+[submodule "tla-ci"]
+	path = tla-ci
+	url = https://github.com/cwi-swat/tla-ci
