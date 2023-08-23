@@ -25,8 +25,8 @@ variables
   data = db;
 
 define
-  AllPositive == \A id \in DOMAIN data: data[id].amount >= 0
-  AlwaysPositive == [](Satisfies(execs) => AllPositive)
+  AllNonnegative == \A id \in DOMAIN data: data[id].amount >= 0
+  AlwaysNonnegative == [](Satisfies(execs) => AllNonnegative)
 end define;
 
 process update \in {20000, 100000}
@@ -55,13 +55,13 @@ begin
 end process;
 
 end algorithm; *)
-\* BEGIN TRANSLATION (chksum(pcal) = "c13adcc8" /\ chksum(tla) = "430c1b64")
+\* BEGIN TRANSLATION (chksum(pcal) = "8b8273e4" /\ chksum(tla) = "6ded5bac")
 CONSTANT defaultInitValue
 VARIABLES execs, data, pc
 
 (* define statement *)
-AllPositive == \A id \in DOMAIN data: data[id].amount >= 0
-AlwaysPositive == [](Satisfies(execs) => AllPositive)
+AllNonnegative == \A id \in DOMAIN data: data[id].amount >= 0
+AlwaysNonnegative == [](Satisfies(execs) => AllNonnegative)
 
 VARIABLES counter, amount, enough_fund, v1
 
