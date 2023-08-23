@@ -1,4 +1,4 @@
----- MODULE PgReadCommit ----
+---- MODULE PgReadCommitted ----
 EXTENDS PgIsolationCommon
 
 (*  Implement the book 'PostgreSQL 14 Internals' p.52 - 53
