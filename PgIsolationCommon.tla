@@ -11,4 +11,14 @@ CC == INSTANCE ClientCentric WITH Keys <- DOMAIN db, Values <- Codomain(db)
 R(k, v) == CC!r(k, v)
 W(k ,v) == CC!w(k, v)
 
+ReduceSet(op(_, _), set, acc) == CC!ReduceSet(op, set, acc)
+ReduceSeq(op(_, _), seq, acc) == CC!ReduceSeq(op, seq, acc)
+
+isolation_levels == {"RC", "SI", "SER"}
+Satisfies(es, level) ==
+  CASE
+    level = "RC"  -> CC!executionSatisfiesCT(es, CC!CT_RC)  []
+    level = "SI"  -> CC!executionSatisfiesCT(es, CC!CT_SI)  []
+    level = "SER" -> CC!executionSatisfiesCT(es, CC!CT_SER)
+
 ====
